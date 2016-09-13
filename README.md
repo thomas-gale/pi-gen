@@ -4,7 +4,7 @@ This is a fork of RPi-Distro/pi-gen repository to create an Ethereum node based 
 
 #EthRasbian
 
-EthRaspbian is a Custom Raspbian Image with the parity ethereum client installed to run as a Ethereum blockchain full node. This is intended to be Flash and Play
+EthRaspbian is a Custom Raspbian Image with the parity ethereum client installed to run as a Ethereum blockchain full node.
 
 #What you need
 
@@ -13,6 +13,7 @@ EthRaspbian is a Custom Raspbian Image with the parity ethereum client installed
 3. Power Supply for specific Raspberrypi model
 4. An ethernet cable
 5. EthRaspbian Image
+6. (Optional) USB keyboard, Monitor and HDMI cable
 
 #Install instructions for Linux
 
@@ -26,13 +27,17 @@ http://www.ethraspbian.com/downloads/2016-09-09-ethraspbian.img.zip
 
 `unzip http://www.ethraspbian.com/downloads/2016-09-09-ethraspbian.img.zip`
 
-3. Check your MicroSD device by running:
+3. Check your MicroSD device name running:
 
 `sudo fdisk -l`
 
 You should see a device named `mmcblk0` or `sdd` (this is a dangerous operation, be careful). For further info please visit:
 
-4. Flash it (mmcblk0 example):
+If you need further info please visit:
+
+https://www.raspberrypi.org/documentation/installation/installing-images/linux.md
+
+4. Flash the MicroSD (mmcblk0 example):
 
 `dd bs=1M if=2016-09-09-ethraspbian.img of=/dev/mmcblk0 && sync`
 

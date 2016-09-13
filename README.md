@@ -4,7 +4,7 @@ This is a fork of RPi-Distro/pi-gen repository to create an Ethereum node based 
 
 #EthRasbian
 
-EthRaspbian is a Custom Raspbian Image with the parity ethereum client installed to run as a Ethereum blockchain full node.
+EthRaspbian is a custom Raspbian image which runs parity Ethereum client as a boot service and starts syncing the blockchain with no user interaction.
 
 #What you need
 
@@ -17,27 +17,25 @@ EthRaspbian is a Custom Raspbian Image with the parity ethereum client installed
 
 #Install instructions for Linux
 
-Insert the MicroSD in your SD adapter and plug it into your computer. It is recommended to umount partitions in case they've been automonted (you can do it through your file browser or the command line)
+Insert the MicroSD in your SD adapter and plug it into your computer. It is recommended to umount partitions in case that you have a preformated card.
 
-1. Download the custom Raspbian image:
+1. Download the EthRaspbian image:
 
 http://www.ethraspbian.com/downloads/2016-09-09-ethraspbian.img.zip
 
 2. Unzip it:
 
-`unzip http://www.ethraspbian.com/downloads/2016-09-09-ethraspbian.img.zip`
+`unzip 2016-09-09-ethraspbian.img.zip`
 
 3. Check your MicroSD device name running:
 
 `sudo fdisk -l`
 
-You should see a device named `mmcblk0` or `sdd` (this is a dangerous operation, be careful). For further info please visit:
-
-If you need further info please visit:
+You should see a device named `mmcblk0` or `sdd` (that matchs with the size of your card. This is a dangerous operation, be careful). For further info please visit:
 
 https://www.raspberrypi.org/documentation/installation/installing-images/linux.md
 
-4. Flash the MicroSD (mmcblk0 example):
+4. Flash the MicroSD (mmcblk0 device example):
 
 `dd bs=1M if=2016-09-09-ethraspbian.img of=/dev/mmcblk0 && sync`
 
@@ -58,3 +56,10 @@ Please see:
 
 https://www.raspberrypi.org/documentation/installation/installing-images/windows.md
 
+# Remarks
+
+- you can get the current parity output by running
+
+`sudo systemd status parity`
+
+- SSH service is enabled so you can easily connect to your Raspberry.

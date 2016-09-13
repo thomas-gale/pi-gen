@@ -43,7 +43,14 @@ https://www.raspberrypi.org/documentation/installation/installing-images/linux.m
 
 5. Extract the MicroSD card
 
-You are done. Insert the MicroSD in your Raspberry and turn it on.
+You are done. Insert the MicroSD in your Raspberry and power it on. Login details (Raspbian defaults):
+
+user: pi
+passwd: raspberry
+
+It is strongly recommended to change the default password by running:
+
+`passwd`
 
 #Instructions for Windows
 

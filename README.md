@@ -1,6 +1,6 @@
 #NOTE
 
-This is a fork of RPi-Distro/pi-gen repository to create a custom Raspbian image to support the Ethereum Network. Please visit https://github.com/RPi-Distro/pi-gen for technical details about Raspbian customization.
+This is a fork of RPi-Distro/pi-gen repository to create an Ethereum node based on Raspbian. Please visit https://github.com/RPi-Distro/pi-gen for technical details about Raspbian customization.
 
 #EthRasbian
 

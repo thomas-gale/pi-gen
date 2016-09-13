@@ -1,75 +1,48 @@
-#TODO
+#NOTE
 
-1. Simplify running a single stage
-1. Documentation
+This is a fork of RPi-Distro/pi-gen repository to create a custom Raspbian image to support the Ethereum Network. Please visit https://github.com/RPi-Distro/pi-gen for technical details about Raspbian customization.
 
-#Dependencies
+#EthRasbian
 
-`quilt kpartx realpath qemu-user-static debootstrap zerofree pxz`
+EthRaspbian is a Custom Raspbian Image with the parity ethereum client installed to run as a Ethereum blockchain full node. This is intended to be Flash and Play
 
-#Config
+#What you need
 
-Upon execution, `build.sh` will source the file `config` in the current
-working directory.  This bash shell fragment is intended to set needed
-environment variables.
+1. Raspberry Pi 2/3 (Raspberrypi 2 not tested yet but should work)
+2. 64GB micro SD Card and SD Adaptor
+3. Power Supply for specific Raspberrypi model
+4. An ethernet cable
+5. EthRaspbian Image
 
-The following environment variables are supported:
+#Install instructions for Linux
 
- * `IMG_NAME`, the name of the distribution to build (required)
- * `APT_PROXY`, proxy/cache URL to be included in the build
+Insert the MicroSD in your SD adapter and plug it into your computer. It is recommended to umount partitions in case they've been automonted (you can do it through your file browser or the command line)
 
-A simple example for building Raspbian:
+1. Download the custom Raspbian image:
 
-```bash
-IMG_NAME='Raspbian'
-```
+http://www.ethraspbian.com/downloads/2016-09-09-ethraspbian.img.zip
 
-#Stage Anatomy
+2. Unzip it:
 
+`unzip http://www.ethraspbian.com/downloads/2016-09-09-ethraspbian.img.zip`
 
+3. Check your MicroSD device by running:
 
-#Raspbian Stage Overview
+`sudo fdisk -l`
 
-The build of Raspbian is divided up into several stages for logical clarity
-and modularity.  This causes some initial complexity, but it simplifies
-maintenance and allows for more easy customization.
+You should see a device named `mmcblk0` or `sdd` (this is a dangerous operation, be careful). For further info please visit:
 
- - Stage 0, bootstrap.  The primary purpose of this stage is to create a
-   usable filesystem.  This is accomplished largely through the use of
-   `debootstrap`, which creates a minimal filesystem suitable for use as a
-   base.tgz on Debian systems.  This stage also configures apt settings and
-   installs `raspberrypi-bootloader` which is missed by debootstrap.  The
-   minimal core is installed but not configured, and the system will not quite
-   boot yet.
+4. Flash it (mmcblk0 example):
 
- - Stage 1, truly minimal system.  This stage makes the system bootable by
-   installing system files like `/etc/fstab`, configures the bootloader, makes
-   the network operable, and installs packages like raspi-config.  At this
-   stage the system should boot to a local console from which you have the
-   means to perform basic tasks needed to configure and install the system.
-   This is as minimal as a system can possibly get, and its arguably not
-   really usable yet in a traditional sense yet.  Still, if you want minimal,
-   this is minimal and the rest you could reasonably do yourself as sysadmin.
+`dd bs=1M if=2016-09-09-ethraspbian.img of=/dev/mmcblk0 && sync`
 
- - State 2, lite system.  This stage produces the Raspbian-Lite image.  It
-   installs some optimized memory functions, sets timezone and charmap
-   defaults, installs fake-hwclock and ntp, wifi and bluetooth support,
-   dphys-swapfile, and other basics for managing the hardware.  It also
-   creates necessary groups and gives the pi user access to sudo and the
-   standard console hardware permission groups.
+5. Extract the MicroSD card
 
-   There are a few tools that may not make a whole lot of sense here for
-   development purposes on a minimal system such as basic python and lua
-   packages as well as the `build-essential` package.  They are lumped right
-   in with more essential packages presently, though they need not be with
-   pi-gen.  These are understandable for Raspbian's target audience, but if
-   you were looking for something between truly minimal and Raspbian-lite,
-   here's where you start trimming.
+You are done. Insert the MicroSD in your Raspberry and turn it on.
 
- - Stage 3, desktop system.  Here's where you get the full desktop system
-   with X11 and LXDE, web browsers, git for development, Raspbian custom UI
-   enhancements, etc.  This is a base desktop system, with some development
-   tools installed.
+Instructions for Windows
 
- - Stage 4, complete Raspbian system.  More development tools, large packages
-   like LibreOffice, email, sonic-pi, wolfram-engine, etc.  All the things.
+Please read:
+
+https://www.raspberrypi.org/documentation/installation/installing-images/windows.md
+

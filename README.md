@@ -9,7 +9,7 @@ EthRaspbian is a Custom Raspbian Image with the parity ethereum client installed
 #What you need
 
 1. Raspberry Pi 2/3 (Raspberrypi 2 not tested yet but should work)
-2. 64GB micro SD Card and SD Adaptor
+2. Micro SD Card and SD Adaptor (64GB Class 10 is recommended) 
 3. Power Supply for specific Raspberrypi model
 4. An ethernet cable
 5. EthRaspbian Image
@@ -45,9 +45,9 @@ https://www.raspberrypi.org/documentation/installation/installing-images/linux.m
 
 You are done. Insert the MicroSD in your Raspberry and turn it on.
 
-Instructions for Windows
+#Instructions for Windows
 
-Please read:
+Please see:
 
 https://www.raspberrypi.org/documentation/installation/installing-images/windows.md
 

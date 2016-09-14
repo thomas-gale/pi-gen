@@ -56,6 +56,12 @@ Please see:
 
 https://www.raspberrypi.org/documentation/installation/installing-images/windows.md
 
+#Instructions for Mac
+
+Please see:
+
+https://www.raspberrypi.org/documentation/installation/installing-images/mac.md
+
 # Remarks
 
 - you can get the current parity output by running

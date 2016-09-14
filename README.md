@@ -1,4 +1,4 @@
-#NOTE
+#Disclaimer
 
 This is a fork of RPi-Distro/pi-gen repository to create an Ethereum node based on Raspbian. Please visit https://github.com/RPi-Distro/pi-gen for technical details about Raspbian customization.
 

@@ -4,15 +4,15 @@ This is a fork of RPi-Distro/pi-gen repository to create an Ethereum node based 
 
 #EthRasbian
 
-EthRaspbian is a custom Raspbian image which runs parity Ethereum client as a boot service and starts syncing the blockchain with no user interaction.
+EthRaspbian is a custom Raspbian image which runs Parity Ethereum client as a boot up service and starts syncing the blockchain with no user interaction.
 
 #What you need
 
-1. Raspberry Pi 2/3 (Raspberrypi 2 not tested yet but should work)
+1. Raspberry Pi 2/3 (didn't test Raspberry Pi 2 yet it but should work)
 2. Micro SD Card and SD Adaptor (64GB Class 10 is recommended) 
 3. Power Supply for specific Raspberrypi model
 4. An ethernet cable
-5. EthRaspbian Image
+5. EthRaspbian Image (download link below)
 6. (Optional) USB keyboard, Monitor and HDMI cable
 
 #Install instructions for Linux
@@ -43,8 +43,8 @@ https://www.raspberrypi.org/documentation/installation/installing-images/linux.m
 
 You are done. Insert the MicroSD in your Raspberry and power it on. Login details (Raspbian defaults):
 
-user: pi
-passwd: raspberry
+User: pi
+Password: raspberry
 
 It is strongly recommended to change the default password by running:
 

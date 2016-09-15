@@ -66,6 +66,6 @@ https://www.raspberrypi.org/documentation/installation/installing-images/mac.md
 
 - you can get the current parity output by running
 
-`sudo systemd status parity`
+`sudo systemctl status parity`
 
 - SSH service is enabled so you can easily connect to your Raspberry.

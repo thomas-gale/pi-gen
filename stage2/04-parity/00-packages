@@ -1,0 +1,2 @@
+unattended-upgrades vim screen python-zmq python-tornado/stretch salt-common/stretch
+salt-minion/stretch

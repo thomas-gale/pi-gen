@@ -1,0 +1,18 @@
+Index: jessie-stage2/rootfs/usr/lib/raspi-config/init_resize.sh
+===================================================================
+--- jessie-stage2.orig/rootfs/usr/lib/raspi-config/init_resize.sh
++++ jessie-stage2/rootfs/usr/lib/raspi-config/init_resize.sh
+@@ -129,8 +129,14 @@ mount -t proc proc /proc
+ mount -t sysfs sys /sys
+ 
+ mount /boot
+-sed -i 's/ quiet init=.*$//' /boot/cmdline.txt
++sed -i 's/ rw init=.*$//' /boot/cmdline.txt
+ mount /boot -o remount,ro
++
++# hack to modify hostname
++MAC_HASH=`cat /sys/class/net/eth0/address | sha256sum | awk '{print substr($0,0,9)}'`
++echo ethnode-$MAC_HASH > /etc/hostname
++sed -i "s/127.0.1.1.*/127.0.1.1\tethnode-$MAC_HASH/g" /etc/hosts
++
+ sync

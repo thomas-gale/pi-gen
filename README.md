@@ -2,7 +2,7 @@
 
 This is a fork of RPi-Distro/pi-gen repository to create an Ethereum node based on Raspbian. Please visit https://github.com/RPi-Distro/pi-gen for technical details about Raspbian customization.
 
-#EthRasbian
+#EthRaspbian
 
 EthRaspbian is a custom Raspbian image which runs Parity Ethereum client as a boot up service and starts syncing the blockchain with no user interaction.
 
@@ -21,11 +21,11 @@ Insert the MicroSD in your SD adapter and plug it into your computer. It is reco
 
 1. Download the EthRaspbian image:
 
-http://www.ethraspbian.com/downloads/2016-09-09-ethraspbian.img.zip
+http://ethraspbian.com/downloads/2016-10-08-EthRaspbian-1.3.5.img.zip
 
 2. Unzip it:
 
-`unzip 2016-09-09-ethraspbian.img.zip`
+`unzip 2016-10-08-EthRaspbian-1.3.5.img.zip`
 
 3. Check your MicroSD device name running:
 
@@ -37,15 +37,15 @@ https://www.raspberrypi.org/documentation/installation/installing-images/linux.m
 
 4. Flash the MicroSD (mmcblk0 device example):
 
-`dd bs=1M if=2016-09-09-ethraspbian.img of=/dev/mmcblk0 && sync`
+`dd bs=1M if=2016-10-08-EthRaspbian-1.3.5-lite.img of=/dev/mmcblk0 && sync`
 
 5. Extract the MicroSD card
 
 You are done. Insert the MicroSD in your Raspberry and power it on. Login details (Raspbian defaults):
-
+```
 User: pi
-Password: raspberry
-
+Password: raspberry< br/>
+```
 It is strongly recommended to change the default password by running:
 
 `passwd`

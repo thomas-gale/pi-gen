@@ -37,7 +37,7 @@ https://www.raspberrypi.org/documentation/installation/installing-images/linux.m
 
 4. Flash the MicroSD (mmcblk0 device example):
 
-`dd bs=1M if=2016-10-08-EthRaspbian-1.3.5-lite.img of=/dev/mmcblk0 && sync`
+`sudo dd bs=1M if=2016-10-08-EthRaspbian-1.3.5-lite.img of=/dev/mmcblk0 && sync`
 
 5. Extract the MicroSD card
 

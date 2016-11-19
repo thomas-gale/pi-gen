@@ -4,7 +4,7 @@ This is a fork of RPi-Distro/pi-gen repository to create an Ethereum node based 
 
 #EthRaspbian
 
-EthRaspbian is a custom Linux image for the Raspberry pi 3 that runs the Ethereum Parity client as a boot service and automatically turns your Rasberrypi into an full Ethereum node
+EthRaspbian is a custom Linux image for the Raspberry pi 3 that runs the Geth or Parity Ethereum client as a boot service and automatically turns your Rasberrypi into an full Ethereum node
 
 #What you need
 
@@ -19,13 +19,19 @@ EthRaspbian is a custom Linux image for the Raspberry pi 3 that runs the Ethereu
 
 Insert the MicroSD in your SD adapter and plug it into your computer. It is recommended to umount partitions in case that you have a preformated card.
 
-1. Download the EthRaspbian image:
+1. Download the EthRaspbian image (you can choose from Geth or Parity images):
+
+Geth edition
+
+http://ethraspbian.com/downloads/2016-11-18-EthRaspbian-geth-1.5.2.img-lite.img.zip
+
+Parity edition
 
 http://ethraspbian.com/downloads/2016-10-08-EthRaspbian-1.3.5.img.zip
 
-2. Unzip it:
+2. Unzip it (for instance):
 
-`unzip 2016-10-08-EthRaspbian-1.3.5.img.zip`
+`unzip 2016-11-18-EthRaspbian-geth-1.5.2.img-lite.img.zip`
 
 3. Check your MicroSD device name running:
 
@@ -35,9 +41,9 @@ You should see a device named `mmcblk0` or `sdd` (that matchs with the size of y
 
 https://www.raspberrypi.org/documentation/installation/installing-images/linux.md
 
-4. Flash the MicroSD (mmcblk0 device example):
+4. Flash the MicroSD (mmcblk0 device and geth edition example example):
 
-`sudo dd bs=1M if=2016-10-08-EthRaspbian-1.3.5-lite.img of=/dev/mmcblk0 && sync`
+`sudo dd bs=1M if=2016-11-18-EthRaspbian-geth-1.5.2.img-lite.img.zip of=/dev/mmcblk0 && sync`
 
 5. Extract the MicroSD card
 

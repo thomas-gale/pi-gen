@@ -4,7 +4,7 @@ This is a fork of RPi-Distro/pi-gen repository to create an Ethereum node based 
 
 #EthRaspbian
 
-EthRaspbian is a custom Linux image for the Raspberry pi 3 that runn Geth or Parity Ethereum client as a boot service and automatically turns your Rasberrypi into an full Ethereum node
+EthRaspbian is a custom Linux image for the Raspberry pi 3 that runs Geth or Parity Ethereum client as a boot service and automatically turns your Rasberrypi into an full Ethereum node
 
 #What you need
 

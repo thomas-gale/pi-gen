@@ -68,10 +68,74 @@ Please see:
 
 https://www.raspberrypi.org/documentation/installation/installing-images/mac.md
 
-# Remarks
+#Further info
 
-- you can get the current parity output by running
+##Features
 
-`sudo systemctl status parity`
+- MicroSD partition is resized automatically on first boot (this is a default Raspbian feature)
+- SSH is enabled by default so you can connect remotely to the Raspberry
+- Video memory set to 16MB instead of 64MB for saving some RAM
+- Hostname changed on first boot to ethnode-[hashed mac chunk] so every single installation has a unique hostname (ethnode-e2b3c551, for instance)
 
-- SSH service is enabled so you can easily connect to your Raspberry.
+##Switching clients
+
+Both clients (Geth and Parity) are included in both images so if something goes wrong with one of them (security breach, DDoS attacks…) you can switch to the other. Let’s say you are running the parity image, by typing:
+
+`sudo systemctl stop parity && sudo systemctl disable parity`
+`sudo systemctl enable geth && sudo systemctl start geth`
+
+
+Will disable parity and start the geth daemon.
+
+
+##Geth
+
+###Managing the daemon
+
+Geth runs as a bootup service so it wakes up automatically. You can stop, start, restart and check the console output using systemctl:
+
+`sudo systemctl stop|start|restart|status geth`
+
+###Changing settings
+
+Settings are stored on /etc/geth/geth.conf so you just have to edit this file and restart the daemon, for instance (setting a cache value):
+
+`sudo echo ARGS="--cache 384" > /etc/geth/geth.conf`
+`sudo systemctl restart geth`
+
+###Light client and Light server
+
+Light client works great on the Pi but as the main goal of this image is to support the Ethereum network it makes more sense to run Geth in Light server mode (to support the devices connecting as Light clients). To do so type:
+
+`sudo echo ARGS="--lightserv 25 --lightpeers 50" > /etc/geth/geth.conf`
+`sudo systemctl restart geth`
+
+###Swarm
+
+Swarm binary is included in the Geth package (/usr/bin/bzzd) so you can play with it. Keep in mind that you need to run geth in another network (NOT in the main one) and that the code is highly experimental. Remember to report any issues you may encounter.
+
+##Parity
+
+###Managing the daemon
+
+Parity runs as a bootup service so it wakes up automatically. You can stop, start, restart and check the console output using systemctl:
+
+`sudo systemctl stop|start|restart|status parity`
+
+
+###Changing settings
+
+Settings are stored on /etc/geth/parity.conf so you just have to edit this file and restart the daemon, for instance (setting a cache value):
+
+`sudo echo ARGS="--cache 384" > /etc/geth/parity.conf`
+`sudo systemctl restart parity`
+
+###Warp mode and web wallet
+
+Parity 1.4 introduces Warp sync, quoting Ethcore "This is a highly optimised chain synchronisation mode that uses various methods of compression to distribute the state of Ethereum. Cryptographic manifests ensure you are downloading the right data and because it progressively downloads the blocks and receipts in the background, you will end up with a node exactly as if you had done a full sync". Warp is not working yet on the Pi but may in a near future.
+
+The other great feature in this version is the awesome new wallet. If you have SSH installed on your desktop, just run on a console (you need the blockchain synced on the pi):
+
+`ssh -fN -L8080:localhost:8080 pi@your_pi_local_IP`
+
+You can now open http://localhost:8080 on your desktop browser and play around. Remember that if you create a new Ethereum account  it WILL BE CREATED ON YOUR PI (/home/pi/.parity/keys), so be careful with this.

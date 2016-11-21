@@ -107,10 +107,10 @@ sudo systemctl restart geth
 ```
 ###Light client and Light server
 
-Light client works great on the Pi but as the main goal of this image is to support the Ethereum network it makes more sense to run Geth in Light server mode (to support the devices connecting as Light clients). To do so type:
+Light client works great on the Pi but as the main goal of this image is to support the Ethereum network it makes more sense to run Geth in Light server mode (to support the devices connecting as Light clients). It seems to run quite well with a little cache. To do so type:
 
 ```
-sudo echo ARGS="--lightserv 25 --lightpeers 50" > /etc/geth/geth.conf
+sudo echo ARGS="--lightserv 25 --lightpeers 50 --cache 384" > /etc/geth/geth.conf
 sudo systemctl restart geth
 ```
 

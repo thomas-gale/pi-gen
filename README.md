@@ -81,10 +81,10 @@ https://www.raspberrypi.org/documentation/installation/installing-images/mac.md
 
 Both clients (Geth and Parity) are included in both images so if something goes wrong with one of them (security breach, DDoS attacks…) you can switch to the other. Let’s say you are running the parity image, by typing:
 
-`sudo systemctl stop parity && sudo systemctl disable parity`
-
-`sudo systemctl enable geth && sudo systemctl start geth`
-
+```
+sudo systemctl stop parity && sudo systemctl disable parity
+sudo systemctl enable geth && sudo systemctl start geth
+```
 
 Will disable parity and start the geth daemon.
 
@@ -101,15 +101,18 @@ Geth runs as a bootup service so it wakes up automatically. You can stop, start,
 
 Settings are stored on /etc/geth/geth.conf so you just have to edit this file and restart the daemon, for instance (setting a cache value):
 
-`sudo echo ARGS="--cache 384" > /etc/geth/geth.conf`
-`sudo systemctl restart geth`
-
+```
+sudo echo ARGS="--cache 384" > /etc/geth/geth.conf
+sudo systemctl restart geth
+```
 ###Light client and Light server
 
 Light client works great on the Pi but as the main goal of this image is to support the Ethereum network it makes more sense to run Geth in Light server mode (to support the devices connecting as Light clients). To do so type:
 
-`sudo echo ARGS="--lightserv 25 --lightpeers 50" > /etc/geth/geth.conf`
-`sudo systemctl restart geth`
+```
+sudo echo ARGS="--lightserv 25 --lightpeers 50" > /etc/geth/geth.conf
+sudo systemctl restart geth
+```
 
 ###Swarm
 
@@ -128,8 +131,10 @@ Parity runs as a bootup service so it wakes up automatically. You can stop, star
 
 Settings are stored on /etc/geth/parity.conf so you just have to edit this file and restart the daemon, for instance (setting a cache value):
 
-`sudo echo ARGS="--cache 384" > /etc/geth/parity.conf`
-`sudo systemctl restart parity`
+```
+sudo echo ARGS="--cache 384" > /etc/geth/parity.conf
+sudo systemctl restart parity
+```
 
 ###Warp mode and web wallet
 

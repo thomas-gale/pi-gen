@@ -89,7 +89,7 @@ sudo systemctl enable geth && sudo systemctl start geth
 Will disable parity and start the geth daemon.
 
 
-##Geth
+##Geth (Geth Image installed)
 
 ###Managing the daemon
 
@@ -118,7 +118,7 @@ sudo systemctl restart geth
 
 Swarm binary is included in the Geth package (/usr/bin/bzzd) so you can play with it. Keep in mind that you need to run geth in another network (NOT in the main one) and that the code is highly experimental. Remember to report any issues you may encounter.
 
-##Parity
+##Parity (Parity image installed)
 
 ###Managing the daemon
 

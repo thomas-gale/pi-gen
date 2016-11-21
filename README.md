@@ -82,6 +82,7 @@ https://www.raspberrypi.org/documentation/installation/installing-images/mac.md
 Both clients (Geth and Parity) are included in both images so if something goes wrong with one of them (security breach, DDoS attacks…) you can switch to the other. Let’s say you are running the parity image, by typing:
 
 `sudo systemctl stop parity && sudo systemctl disable parity`
+
 `sudo systemctl enable geth && sudo systemctl start geth`
 
 

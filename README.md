@@ -142,6 +142,6 @@ Parity 1.4 introduces Warp sync, quoting Ethcore "This is a highly optimised cha
 
 ###Tip
 
-If you want to support Raspbian you can drop some Ether here :-)
+If you want to support EthRaspbian you can drop some Ether here :-)
 
-0x7ce2950AD4Dba4B75564ed4a5c302743Bfd90Aeb
+`0x7ce2950AD4Dba4B75564ed4a5c302743Bfd90Aeb`

@@ -136,12 +136,12 @@ sudo echo ARGS="--cache 384" > /etc/geth/parity.conf
 sudo systemctl restart parity
 ```
 
-###Warp mode and web wallet
+###Warp mode
 
 Parity 1.4 introduces Warp sync, quoting Ethcore "This is a highly optimised chain synchronisation mode that uses various methods of compression to distribute the state of Ethereum. Cryptographic manifests ensure you are downloading the right data and because it progressively downloads the blocks and receipts in the background, you will end up with a node exactly as if you had done a full sync". Warp is not working yet on the Pi but may in a near future.
 
-The other great feature in this version is the awesome new wallet. If you have SSH installed on your desktop, just run on a console (you need the blockchain synced on the pi):
+###Tip
 
-`ssh -fN -L8080:localhost:8080 pi@your_pi_local_IP`
+If you want to support Raspbian you can drop some Ether here :-)
 
-You can now open http://localhost:8080 on your desktop browser and play around. Remember that if you create a new Ethereum account  it WILL BE CREATED ON YOUR PI (/home/pi/.parity/keys), so be careful with this.
+0x7ce2950AD4Dba4B75564ed4a5c302743Bfd90Aeb

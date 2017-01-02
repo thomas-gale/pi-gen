@@ -23,15 +23,15 @@ Insert the MicroSD in your SD adapter and plug it into your computer. It is reco
 
 Geth edition
 
-http://ethraspbian.com/downloads/2016-11-18-EthRaspbian-geth-1.5.2.img-lite.img.zip
+http://ethraspbian.com/downloads/image_2017-01-01-EthRaspbian-geth-1.5.5-lite.zip
 
 Parity edition
 
-http://ethraspbian.com/downloads/2016-11-19-EthRaspbian-parity-1.4.4.img-lite.zip
+http://ethraspbian.com/downloads/image_2017-01-01-EthRaspbian-parity-1.4.7-lite.zip
 
 2. Unzip it (for instance):
 
-`unzip 2016-11-18-EthRaspbian-geth-1.5.2.img-lite.img.zip`
+`unzip image_2017-01-01-EthRaspbian-parity-1.4.7-lite.zip`
 
 3. Check your MicroSD device name running:
 
@@ -43,7 +43,7 @@ https://www.raspberrypi.org/documentation/installation/installing-images/linux.m
 
 4. Flash the MicroSD (mmcblk0 device and geth edition example example):
 
-`sudo dd bs=1M if=2016-11-18-EthRaspbian-geth-1.5.2.img-lite.img.zip of=/dev/mmcblk0 && sync`
+`sudo dd bs=1M if=2017-01-01-EthRaspbian-geth-1.5.5-lite.img of=/dev/mmcblk0 && sync`
 
 5. Extract the MicroSD card
 

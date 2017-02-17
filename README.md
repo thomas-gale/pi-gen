@@ -4,7 +4,11 @@ This is a fork of RPi-Distro/pi-gen repository to create an Ethereum node based 
 
 #EthRaspbian
 
-EthRaspbian is a custom Linux image for the Raspberry pi 3 that runs Geth or Parity Ethereum client as a boot service and automatically turns your Rasberrypi into an full Ethereum node
+EthRaspbian is a custom Linux image for the Raspberry pi 2/3 that runs Geth or Parity Ethereum client as a boot service and automatically turns your Rasberrypi into an full Ethereum node.
+
+If you have other ARM Soc please see:
+
+https://github.com/diglos/userpatches
 
 #What you need
 
@@ -16,6 +20,14 @@ EthRaspbian is a custom Linux image for the Raspberry pi 3 that runs Geth or Par
 6. (Optional) USB keyboard, Monitor and HDMI cable
 
 #Install instructions for Linux
+
+##Gui install 
+
+Update. If you are not comfortable with command line take a look at Etcher:
+
+https://etcher.io
+
+##Command line install
 
 Insert the MicroSD in your SD adapter and plug it into your computer. It is recommended to umount partitions in case that you have a preformated card.
 
@@ -56,26 +68,42 @@ It is strongly recommended to change the default password by running:
 
 `passwd`
 
-#Instructions for Windows
+#Install instructions for Windows
 
-Please see:
+Use Etcher to flash the image:
 
-https://www.raspberrypi.org/documentation/installation/installing-images/windows.md
+https://etcher.io
 
-#Instructions for Mac
+#Install instructions for Mac
 
-Please see:
+Use Etcher to flash the image:
 
-https://www.raspberrypi.org/documentation/installation/installing-images/mac.md
+https://etcher.io
 
 #Further info
 
 ##Features
 
+###Common features
+
 - MicroSD partition is resized automatically on first boot (this is a default Raspbian feature)
+- Unique hostname. The hostname is changed on first boot to ethnode-[hashed mac chunk] so every single installation has a unique hostname (ethnode-e2b3c551, for instance) for every single installation
 - SSH is enabled by default so you can connect remotely to the Raspberry
 - Video memory set to 16MB instead of 64MB for saving some RAM
-- Hostname changed on first boot to ethnode-[hashed mac chunk] so every single installation has a unique hostname (ethnode-e2b3c551, for instance)
+- The default Ethereum client runs as a Systemd service (as "pi" user) and it is started right after the network goes up. The Systemd option "Restart=always" is enabled for keeping the daemon alive in case the process dies or gets killed
+
+###Parity image
+
+- Parity as default Ethereum client
+- Warp mode enabled. Expect to have a node up and running in about 25 minutes
+- Geth client included (disabled by default)
+
+###Geth Image
+
+- Geth as default Ethereum client
+- Light server enabled by default
+- Swarm binary included
+- Parity client included (disabled by default)
 
 ##Switching clients
 
@@ -88,8 +116,25 @@ sudo systemctl enable geth && sudo systemctl start geth
 
 Will disable parity and start the geth daemon.
 
+##Parity instructions (Parity image installed)
 
-##Geth (Geth Image installed)
+###Managing the daemon
+
+Parity runs as a bootup service so it wakes up automatically. You can stop, start, restart and check the console output using systemctl:
+
+`sudo systemctl stop|start|restart|status parity`
+
+
+###Changing settings
+
+Settings are stored on /etc/geth/parity.conf so you just have to edit this file and restart the daemon, for instance (setting a cache value):
+
+```
+sudo echo ARGS="--cache 384" > /etc/geth/parity.conf
+sudo systemctl restart parity
+```
+
+##Geth instructions (Geth Image installed)
 
 ###Managing the daemon
 
@@ -118,27 +163,6 @@ sudo systemctl restart geth
 
 Swarm binary is included in the Geth package (/usr/bin/bzzd) so you can play with it. Keep in mind that you need to run geth in another network (NOT in the main one) and that the code is highly experimental. Remember to report any issues you may encounter.
 
-##Parity (Parity image installed)
-
-###Managing the daemon
-
-Parity runs as a bootup service so it wakes up automatically. You can stop, start, restart and check the console output using systemctl:
-
-`sudo systemctl stop|start|restart|status parity`
-
-
-###Changing settings
-
-Settings are stored on /etc/geth/parity.conf so you just have to edit this file and restart the daemon, for instance (setting a cache value):
-
-```
-sudo echo ARGS="--cache 384" > /etc/geth/parity.conf
-sudo systemctl restart parity
-```
-
-###Warp mode
-
-Parity 1.4 introduces Warp sync, quoting Ethcore "This is a highly optimised chain synchronisation mode that uses various methods of compression to distribute the state of Ethereum. Cryptographic manifests ensure you are downloading the right data and because it progressively downloads the blocks and receipts in the background, you will end up with a node exactly as if you had done a full sync". Warp is not working yet on the Pi but may in a near future.
 
 ###Tip
 

@@ -35,15 +35,15 @@ Insert the MicroSD in your SD adapter and plug it into your computer. It is reco
 
 Geth edition
 
-http://ethraspbian.com/downloads/image_2017-02-20-EthRaspbian-geth-1.5.9-lite.zip
+http://ethraspbian.com/downloads/image_2017-04-19-EthRaspbian-geth-1.6.0-lite.zip
 
 Parity edition
 
-http://ethraspbian.com/downloads/image_2017-02-20-EthRaspbian-parity-1.5.2-lite.zip
+http://ethraspbian.com/downloads/image_2017-04-19-EthRaspbian-parity-1.6.6-lite.zip
 
 2. Unzip it (for instance):
 
-`unzip image_2017-02-20-EthRaspbian-parity-1.5.2-lite.zip`
+`unzip image_2017-04-19-EthRaspbian-parity-1.6.6-lite.zip`
 
 3. Check your MicroSD device name running:
 
@@ -55,7 +55,7 @@ https://www.raspberrypi.org/documentation/installation/installing-images/linux.m
 
 4. Flash the MicroSD (mmcblk0 device and geth edition example example):
 
-`sudo dd bs=1M if=2017-02-20-EthRaspbian-geth-1.5.9-lite.img of=/dev/mmcblk0 && sync`
+`sudo dd bs=1M if=2017-04-19-EthRaspbian-parity-1.6.6-lite.img of=/dev/mmcblk0 && sync`
 
 5. Extract the MicroSD card
 
@@ -103,6 +103,7 @@ https://etcher.io
 - Geth as default Ethereum client
 - Light server enabled by default
 - Swarm binary included
+- Puppeth binary included
 - Parity client included (disabled by default)
 
 ##Switching clients

@@ -1,8 +1,8 @@
-#Disclaimer
+# Disclaimer
 
 This is a fork of RPi-Distro/pi-gen repository to create an Ethereum node based on Raspbian. Please visit https://github.com/RPi-Distro/pi-gen for technical details about Raspbian customization.
 
-#EthRaspbian
+# EthRaspbian
 
 EthRaspbian is a custom Linux image for the Raspberry pi 2/3 that runs Geth or Parity Ethereum client as a boot service and automatically turns your Rasberrypi into an full Ethereum node.
 
@@ -10,7 +10,7 @@ If you have other ARM Soc please see:
 
 https://github.com/diglos/userpatches
 
-#What you need
+# What you need
 
 1. Raspberry Pi 2/3 (didn't test Raspberry Pi 2 yet it but should work)
 2. Micro SD Card and SD Adaptor (64GB Class 10 is recommended) 
@@ -21,13 +21,13 @@ https://github.com/diglos/userpatches
 
 #Install instructions for Linux
 
-##Gui install 
+## Gui install 
 
 Update. If you are not comfortable with command line take a look at Etcher:
 
 https://etcher.io
 
-##Command line install
+## Command line install
 
 Insert the MicroSD in your SD adapter and plug it into your computer. It is recommended to umount partitions in case that you have a preformated card.
 
@@ -35,11 +35,11 @@ Insert the MicroSD in your SD adapter and plug it into your computer. It is reco
 
 Geth edition
 
-http://ethraspbian.com/downloads/image_2017-04-19-EthRaspbian-geth-1.6.0-lite.zip
+http://ethraspbian.com/downloads/image_2017-06-13-EthRaspbian-geth-1.6.5-lite.zip
 
 Parity edition
 
-http://ethraspbian.com/downloads/image_2017-04-19-EthRaspbian-parity-1.6.6-lite.zip
+http://ethraspbian.com/downloads/image_2017-06-13-EthRaspbian-parity-1.6.8-lite.zip
 
 2. Unzip it (for instance):
 
@@ -53,9 +53,9 @@ You should see a device named `mmcblk0` or `sdd` (that matchs with the size of y
 
 https://www.raspberrypi.org/documentation/installation/installing-images/linux.md
 
-4. Flash the MicroSD (mmcblk0 device and geth edition example example):
+4. Flash the MicroSD (mmcblk0 device and geth edition example):
 
-`sudo dd bs=1M if=2017-04-19-EthRaspbian-parity-1.6.6-lite.img of=/dev/mmcblk0 && sync`
+`sudo dd bs=1M if=2017-04-19-EthRaspbian-parity-1.6.8-lite.img of=/dev/mmcblk0 && sync`
 
 5. Extract the MicroSD card
 
@@ -80,11 +80,11 @@ Use Etcher to flash the image:
 
 https://etcher.io
 
-#Further info
+# Further info
 
-##Features
+## Features
 
-###Common features
+### Common features
 
 - MicroSD partition is resized automatically on first boot (this is a default Raspbian feature)
 - Unique hostname. The hostname is changed on first boot to ethnode-[hashed mac chunk] so every single installation has a unique hostname (ethnode-e2b3c551, for instance) for every single installation
@@ -92,13 +92,13 @@ https://etcher.io
 - Video memory set to 16MB instead of 64MB for saving some RAM
 - The default Ethereum client runs as a Systemd service (as "pi" user) and it is started right after the network goes up. The Systemd option "Restart=always" is enabled for keeping the daemon alive in case the process dies or gets killed
 
-###Parity image
+### Parity image
 
 - Parity as default Ethereum client
 - Warp mode enabled. Expect to have a node up and running in about 25 minutes
 - Geth client included (disabled by default)
 
-###Geth Image
+### Geth Image
 
 - Geth as default Ethereum client
 - Light server enabled by default
@@ -106,7 +106,7 @@ https://etcher.io
 - Puppeth binary included
 - Parity client included (disabled by default)
 
-##Switching clients
+## Switching clients
 
 Both clients (Geth and Parity) are included in both images so if something goes wrong with one of them (security breach, DDoS attacks…) you can switch to the other. Let’s say you are running the parity image, by typing:
 
@@ -117,16 +117,16 @@ sudo systemctl enable geth && sudo systemctl start geth
 
 Will disable parity and start the geth daemon.
 
-##Parity instructions (Parity image installed)
+## Parity instructions (Parity image installed)
 
-###Managing the daemon
+### Managing the daemon
 
 Parity runs as a bootup service so it wakes up automatically. You can stop, start, restart and check the console output using systemctl:
 
 `sudo systemctl stop|start|restart|status parity`
 
 
-###Changing settings
+### Changing settings
 
 Settings are stored on /etc/geth/parity.conf so you just have to edit this file and restart the daemon, for instance (setting a cache value):
 
@@ -135,15 +135,15 @@ sudo echo ARGS="--cache 384" > /etc/geth/parity.conf
 sudo systemctl restart parity
 ```
 
-##Geth instructions (Geth Image installed)
+## Geth instructions (Geth Image installed)
 
-###Managing the daemon
+### Managing the daemon
 
 Geth runs as a bootup service so it wakes up automatically. You can stop, start, restart and check the console output using systemctl:
 
 `sudo systemctl stop|start|restart|status geth`
 
-###Changing settings
+### Changing settings
 
 Settings are stored on /etc/geth/geth.conf so you just have to edit this file and restart the daemon, for instance (setting a cache value):
 
@@ -151,7 +151,7 @@ Settings are stored on /etc/geth/geth.conf so you just have to edit this file an
 sudo echo ARGS="--cache 384" > /etc/geth/geth.conf
 sudo systemctl restart geth
 ```
-###Light client and Light server
+### Light client and Light server
 
 Light client works great on the Pi but as the main goal of this image is to support the Ethereum network it makes more sense to run Geth in Light server mode (to support the devices connecting as Light clients). It seems to run quite well with a little cache. To do so type:
 
@@ -160,12 +160,12 @@ sudo echo ARGS="--lightserv 25 --lightpeers 50 --cache 384" > /etc/geth/geth.con
 sudo systemctl restart geth
 ```
 
-###Swarm
+### Swarm
 
 Swarm binary is included in the Geth package (/usr/bin/bzzd) so you can play with it. Keep in mind that you need to run geth in another network (NOT in the main one) and that the code is highly experimental. Remember to report any issues you may encounter.
 
 
-###Tip
+### Tip
 
 If you want to support EthRaspbian you can drop some Ether here :-)
 

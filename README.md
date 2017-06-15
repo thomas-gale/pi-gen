@@ -68,13 +68,13 @@ It is strongly recommended to change the default password by running:
 
 `passwd`
 
-#Install instructions for Windows
+# Install instructions for Windows
 
 Use Etcher to flash the image:
 
 https://etcher.io
 
-#Install instructions for Mac
+# Install instructions for Mac
 
 Use Etcher to flash the image:
 

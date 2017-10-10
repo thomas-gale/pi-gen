@@ -13,7 +13,8 @@ TOTAL_SIZE=$(du -sh ${EXPORT_ROOTFS_DIR} -B M | cut -f 1 | tr -d M)
 
 IMG_SIZE=$(expr $BOOT_SIZE \* 2 \+ $TOTAL_SIZE \+ 512)M
 
-fallocate -l ${IMG_SIZE} ${IMG_FILE}
+truncate -s ${IMG_SIZE} ${IMG_FILE}
+#fallocate -l ${IMG_SIZE} ${IMG_FILE}
 fdisk ${IMG_FILE} > /dev/null 2>&1 <<EOF
 o
 n

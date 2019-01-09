@@ -1,6 +1,6 @@
 # Disclaimer
 
-**Due to high hardware requirements to sync the Ethereum blockchain, EthRaspbian is no longer mantained. Please visit the EthArmbian project for creating an ARM Full Ethereum node:**
+**Due to the high hardware requirements to sync the Ethereum blockchain, EthRaspbian is no longer mantained. Please visit the EthArmbian project for running a Full Ethereum node on an ARM device:**
 
 https://github.com/diglos/userpatches
 

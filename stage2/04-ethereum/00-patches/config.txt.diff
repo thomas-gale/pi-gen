@@ -1,0 +1,8 @@
+--- a/rootfs/boot/config.txt
++++ b/rootfs/boot/config.txt
+@@ -54,3 +54,5 @@
+ 
+ # Enable audio (loads snd_bcm2835)
+ dtparam=audio=on
++# Reduce Video RAM
++gpu_mem=16

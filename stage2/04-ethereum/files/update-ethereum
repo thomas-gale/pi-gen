@@ -1,0 +1,8 @@
+#!/bin/bash
+
+cd /tmp
+wget https://ethraspbian.com/downloads/geth_latest_armhf.deb -O geth_latest_armhf.deb
+wget https://ethraspbian.com/downloads/parity_latest_armhf.deb -O parity_latest_armhf.deb
+sudo dpkg -i --force-confold --skip-same-version --refuse-downgrade geth_latest_armhf.deb parity_latest_armhf.deb
+exit 0
+

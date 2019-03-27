@@ -11,19 +11,7 @@ https://github.com/diglos/userpatches
 - Changes the hostname to something like “ethnode-e2a3e6fe” (HEX chunk based on the MAC hash)
 - All binaries run as systemd services and are restarted in case any problem arises
 
-# Software installed
-
-## Ethereum clients
-- Geth 1.8.23 (runs by default in light mode)
-- Parity 2.3.8
-
-## Ethereum components
-- Ipfs 0.4.19
-- Swarm 0.3.11
-- Raiden_0.100.2_armhf.deb 
-- Status.im 0.23.8 Beta8 Chaos (runs by default)
-
-The board may be useful for lots of tasks:
+The board may be particularly useful for the following of tasks:
 
 - Support other key components of the Ethereum network (Swarm, IPFS, Status, Raiden Network)
 - Run an Ethereum light node
@@ -31,6 +19,20 @@ The board may be useful for lots of tasks:
 - Run private networks
 - Use it as a development environment
 - Other (Sidechains, Ethereum 2.0 tests…)
+
+# Software installed
+
+## Ethereum clients
+- Geth 1.8.23 (runs by default in light mode)
+- Parity 2.3.8
+
+## Ethereum framework
+- Ipfs 0.4.19
+- Swarm 0.3.11
+- Raiden_0.100.2_armhf.deb 
+- Status.im 0.23.8 Beta8 Chaos (runs by default)
+
+
 # What you need
 1. Raspberry Pi 2/3
 2. Micro SD Card and SD Adaptor (64GB Class 10 is recommended) 

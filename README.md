@@ -41,7 +41,7 @@ The board may be particularly useful for the following of tasks:
 5. EthRaspbian Image (download link below)
 6. (Optional) USB keyboard, Monitor and HDMI cable
 
-#Install instructions for Linux
+# Install instructions for Linux
 
 ## Gui install 
 

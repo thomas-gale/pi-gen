@@ -55,13 +55,7 @@ Insert the MicroSD in your SD adapter and plug it into your computer. It is reco
 
 1. Download the EthRaspbian image (you can choose from Geth or Parity images):
 
-Geth edition
-
-http://ethraspbian.com/downloads/image_2017-06-13-EthRaspbian-geth-1.6.5-lite.zip
-
-Parity edition
-
-http://ethraspbian.com/downloads/image_2017-06-13-EthRaspbian-parity-1.6.8-lite.zip
+Coming soon
 
 2. Unzip it (for instance):
 

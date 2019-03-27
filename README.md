@@ -102,3 +102,9 @@ https://etcher.io
 For further information regarding usage and Ethereum nodes please see:
 
 https://github.com/diglos/userpatches
+
+# Tip
+
+If you want to support EthArmbian you can drop some Ether here :-)
+
+`0x10BE809ad5F8Da1C675A26344E05cD9b56De6306`

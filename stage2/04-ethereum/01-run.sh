@@ -1,22 +1,16 @@
 #!/bin/bash -e
 
-install -m 755 files/geth_1.8.23-0_armhf.deb                ${ROOTFS_DIR}/root/
-install -m 755 files/raiden_0.100.2-0_armhf.deb		    ${ROOTFS_DIR}/root/
-install -m 755 files/parity_2.3.8-0_armhf.deb		    ${ROOTFS_DIR}/root/
-install -m 755 files/status.im-node-0.23.8-0-beta8chaos_armhf.deb  ${ROOTFS_DIR}/root/
-install -m 755 files/ipfs_0.4.19-0_armhf.deb		    ${ROOTFS_DIR}/root/
-install -m 755 files/update-ethereum			    ${ROOTFS_DIR}/usr/local/bin
+install -m 644 files/ethonarm.list			    ${ROOTFS_DIR}/etc/apt/sources.list.d/ 
+cat <<EOF >> ${ROOTFS_DIR}/etc/bash.bashrc
+alias update-ethereum='
+sudo apt-get update
+sudo apt-get install geth ipfs parity raiden status.im-node'
+EOF
 
 on_chroot <<EOF
-dpkg -i /root/geth_1.8.23-0_armhf.deb
-rm -f /root/geth_1.8.23-0_armhf.deb
-dpkg -i /root/parity_2.3.8-0_armhf.deb
-rm -f /root/parity_2.3.8-0_armhf.deb
-dpkg -i /root/raiden_0.100.2-0_armhf.deb
-rm -f /root/raiden_0.100.2-0_armhf.deb
-dpkg -i /root/status.im-node-0.23.8-0-beta8chaos_armhf.deb
-rm -f /root/status.im-node-0.23.8-0-beta8chaos_armhf.deb
-dpkg -i /root/ipfs_0.4.19-0_armhf.deb
-rm -f /root/ipfs_0.4.19-0_armhf.deb
+# Add EthRaspbian APT key
+apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 8A584409D327B0A5
+# Install Ethereum packages
+apt-get update && apt-get install geth parity ipfs raiden status.im-node
 EOF
 

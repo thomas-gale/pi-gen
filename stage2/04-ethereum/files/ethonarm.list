@@ -1,0 +1,3 @@
+deb http://apt.ethraspbian.com stretch main
+deb http://apt.ethraspbian.com stretch-security main
+deb http://apt.ethraspbian.com stretch-upgrades main

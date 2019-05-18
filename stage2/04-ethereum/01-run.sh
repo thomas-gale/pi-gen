@@ -11,7 +11,8 @@ on_chroot <<EOF
 # Add EthRaspbian APT key
 apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 8A584409D327B0A5
 # Install Ethereum packages
-apt-get update && apt-get install geth parity ipfs raiden status.im-node
+apt-get update && apt-get install geth
+apt-get install parity ipfs raiden status.im-node
 # Force password change on Ethereum account
 chage -d 0 ethereum
 EOF

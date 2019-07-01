@@ -1,4 +1,4 @@
-EthRaspbian is a custom Linux image for the Raspberry pi 2/3 that runs Geth or Parity Ethereum clients as a boot service in light mode and includes other Ethereum components to support the network.
+EthRaspbian is a custom Linux image for the Raspberry pi 2/3/4 that runs Geth or Parity Ethereum clients as a boot service in light mode and includes other Ethereum components to support the network.
 
 Due to hardware limits, Raspberry Pi is not capable of Syncing the blockchain. If you want to run an Ethereum full node with an ARM board please visit:
 
@@ -6,7 +6,7 @@ https://github.com/diglos/userpatches
 
 # Image features
 
-- Based on Debian Stretch
+- Based on Debian Buster
 - Automatically resizes the SD card
 - Changes the hostname to something like “ethnode-e2a3e6fe” (HEX chunk based on the MAC hash)
 - All binaries run as systemd services and are restarted in case any problem arises

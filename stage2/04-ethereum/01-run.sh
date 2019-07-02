@@ -1,6 +1,7 @@
 #!/bin/bash -e
 
 install -m 644 files/ethonarm.list			    ${ROOTFS_DIR}/etc/apt/sources.list.d/ 
+install -m 755 files/init_resize.sh			    ${ROOTFS_DIR}/usr/lib/raspi-config	
 cat <<EOF >> ${ROOTFS_DIR}/etc/bash.bashrc
 alias update-ethereum='
 sudo apt-get update

@@ -23,7 +23,7 @@ The board may be particularly useful for the following of tasks:
 # Software installed
 
 ## Ethereum clients
-- Geth 1.9 (runs by default in light mode)
+- Geth 1.9.1 (runs by default in light mode)
 - Parity 2.5.5
 
 ## Ethereum framework
@@ -31,7 +31,7 @@ The board may be particularly useful for the following of tasks:
  - Raiden Network: 0.100.4
  - IPFS: 0.4.21
  - Status.im: 0.30.0~beta2
- - Vipnode: 2.1
+ - Vipnode: 2.2.1
 
 
 # What you need
@@ -56,7 +56,7 @@ Insert the MicroSD in your SD adapter and plug it into your computer. It is reco
 
 1. Download the EthRaspbian image (you can choose from Geth or Parity images):
 
-https://ethraspbian.com/downloads/image_2019-07-14-EthRaspbian2.0-lite.zip
+https://ethraspbian.com/downloads/image_2019-07-25-EthRaspbian2.0-lite.zip
 
 2. Unzip it (for instance):
 

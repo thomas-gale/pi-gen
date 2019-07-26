@@ -27,7 +27,7 @@ The board may be particularly useful for the following of tasks:
 - Parity 2.5.5
 
 ## Ethereum framework
--  Swarm: 0.4.2
+-  Swarm: 0.4.3
  - Raiden Network: 0.100.4
  - IPFS: 0.4.21
  - Status.im: 0.30.0~beta2

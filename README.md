@@ -23,13 +23,13 @@ The board may be particularly useful for the following of tasks:
 # Software installed
 
 ## Ethereum clients
-- Geth 1.9.1 (runs by default in light mode)
-- Parity 2.5.5
+- Geth 1.9.4 (runs by default in light mode)
+- Parity 2.5.7
 
 ## Ethereum framework
 -  Swarm: 0.4.3
  - Raiden Network: 0.100.4
- - IPFS: 0.4.21
+ - IPFS: 0.4.22
  - Status.im: 0.30.0~beta2
  - Vipnode: 2.2.1
 

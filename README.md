@@ -23,8 +23,8 @@ The board may be particularly useful for the following of tasks:
 # Software installed
 
 ## Ethereum clients
-- Geth 1.9.4 (runs by default in light mode)
-- Parity 2.5.7
+- Geth 1.9.5 (runs by default in light mode)
+- Parity 2.5.9
 
 ## Ethereum framework
 -  Swarm: 0.4.3

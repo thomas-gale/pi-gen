@@ -23,19 +23,19 @@ The board may be particularly useful for the following of tasks:
 # Software installed
 
 ## Ethereum clients
-- Geth 1.9 (runs by default in light mode)
-- Parity 2.5.5
+- Geth 1.9.6 (runs by default in light mode)
+- Parity 2.5.9
 
 ## Ethereum framework
--  Swarm: 0.4.2
+-  Swarm: 0.5.0
  - Raiden Network: 0.100.4
- - IPFS: 0.4.21
+ - IPFS: 0.4.22
  - Status.im: 0.30.0~beta2
- - Vipnode: 2.1
+ - Vipnode: 2.2.1
 
 
 # What you need
-1. Raspberry Pi 2/3
+1. Raspberry Pi 2/3/4
 2. Micro SD Card and SD Adaptor (64GB Class 10 is recommended) 
 3. Power Supply for specific Raspberrypi model
 4. An ethernet cable
@@ -56,11 +56,11 @@ Insert the MicroSD in your SD adapter and plug it into your computer. It is reco
 
 1. Download the EthRaspbian image (you can choose from Geth or Parity images):
 
-https://ethraspbian.com/downloads/image_2019-07-14-EthRaspbian2.0-lite.zip
+https://ethraspbian.com/downloads/image_2019-10-03-EthRaspbian2.0-lite.zip
 
 2. Unzip it (for instance):
 
-`unzip image_2019-07-14-EthRaspbian2.0-lite.zip`
+`unzip image_2019-10-03-EthRaspbian2.0-lite.zip`
 
 3. Check your MicroSD device name running:
 
@@ -72,7 +72,7 @@ https://www.raspberrypi.org/documentation/installation/installing-images/linux.m
 
 4. Flash the MicroSD (mmcblk0 device and geth edition example):
 
-`sudo dd bs=1M if=2019-07-14-EthRaspbian2.0-lite of=/dev/mmcblk0 && sync`
+`sudo dd bs=1M if=2019-10-03-EthRaspbian2.0-lite of=/dev/mmcblk0 && sync`
 
 5. Extract the MicroSD card
 

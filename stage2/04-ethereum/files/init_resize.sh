@@ -124,6 +124,58 @@ check_kernel () {
   NEW_KERNEL=1
 }
 
+ethereum_setup () {
+
+# hack to modify hostname in EthRaspbian
+MAC_HASH=`cat /sys/class/net/eth0/address | sha256sum | awk '{print substr($0,0,9)}'`
+echo ethnode-$MAC_HASH > /etc/hostname
+sed -i "s/127.0.1.1.*/127.0.1.1\tethnode-$MAC_HASH/g" /etc/hosts
+
+# Format USB3 SSD and mount it as /home
+
+echo Looking for USB drive
+sleep 20
+
+if stat  /dev/sda > /dev/null 2>&1;
+then
+	echo USB drive found
+	sleep 2 
+        echo Partitioning and formatting USB Drive...
+        fdisk /dev/sda <<EOF
+d
+n
+p
+1
+
+
+w
+EOF
+mkfs.ext4 -F /dev/sda1
+echo '/dev/sda1 /home ext4 defaults 0 2' >> /etc/fstab && mount /home
+else
+        echo no SDD detected
+	sleep 5
+fi
+
+# Create Ethereum account
+echo "Creating ethereum  user for Geth and Parity"
+if ! id -u ethereum >/dev/null 2>&1; then
+        adduser --disabled-password --gecos "" ethereum
+fi
+
+echo "ethereum:ethereum" | chpasswd
+for GRP in sudo netdev audio video dialout plugdev bluetooth; do
+	adduser ethereum $GRP
+done
+
+# Force password change on first login
+chage -d 0 ethereum
+
+# Delete pi user
+userdel -r pi
+
+}
+
 main () {
   get_variables
 
@@ -159,6 +211,7 @@ main () {
 
   partprobe "$ROOT_DEV"
   fix_partuuid
+  ethereum_setup
 
   return 0
 }
@@ -177,11 +230,6 @@ sed -i 's| sdhci\.debug_quirks2=4||' /boot/cmdline.txt
 if ! grep -q splash /boot/cmdline.txt; then
   sed -i "s/ quiet//g" /boot/cmdline.txt
 fi
-
-# hack to modify hostname in EthRaspbian
-MAC_HASH=`cat /sys/class/net/eth0/address | sha256sum | awk '{print substr($0,0,9)}'`
-echo ethnode-$MAC_HASH > /etc/hostname
-sed -i "s/127.0.1.1.*/127.0.1.1\tethnode-$MAC_HASH/g" /etc/hosts
 
 sync
 

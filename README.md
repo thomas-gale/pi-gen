@@ -1,46 +1,49 @@
-EthRaspbian is a custom Linux image for the Raspberry pi 2/3/4 that runs Geth or Parity Ethereum clients as a boot service in light mode and includes other Ethereum components to support the network.
+EthRaspbian (ARM7) is a custom Linux image for the Raspberry Pi 4  that runs Geth or Parity Ethereum clients as a boot service and automatically turns the device into a full Ethereum node. The image includes other components of the Ethereum ecosystem such as Trinity, Status.im, Raiden, IPFS, Swarm and Vipnode as well as initial support for Eth2.0 clients.
 
-Due to hardware limits, Raspberry Pi is not capable of Syncing the blockchain. If you want to run an Ethereum full node with an ARM board please visit:
+It also runs on the Raspberry Pi 2/3 but due to hardware limitations these devices are not capable of syncing the blockchain. However, you can run Geth or Parity as light clients or support the Ethereum network by running other key software such as Status.im, Raiden, IPFS or Swarm.
+
+For running a full Ethereum node on ARM64 devices (currently NanoPC-T4 [3] and Rockpro64 [4]), please see the EthArmbian project
 
 https://github.com/diglos/userpatches
 
 # Image features
 
-- Based on Debian Buster
+EthRaspbian Image takes care of everything, from setting up the environment to installing and running the Ethereum software as well as synchronizing the blockchain.
+
+These are the main features:
+
+- Based on Raspbian [6] Debian Buster
 - Automatically resizes the SD card
-- Changes the hostname to something like “ethnode-e2a3e6fe” (HEX chunk based on the MAC hash)
-- All binaries run as systemd services and are restarted in case any problem arises
-
-The board may be particularly useful for the following of tasks:
-
-- Support other key components of the Ethereum network (Swarm, IPFS, Status, Raiden Network)
-- Run an Ethereum light node
-- Run testnets
-- Run private networks
-- Use it as a development environment
-- Other (Sidechains, Ethereum 2.0 tests…)
+- Partitions and formats the USB SSD drive (in case is detected) and mount it as /home for storing the Ethereum blockchain
+- Creates an Ethereum user account
+- Changes the hostname to something like “ethnode-e2a3e6fe” (HEX chunk based on MAC hash)
+- Enables SSH
+- Automatically reboots once for hostname change, new /home mount point and MicroSD resize to take effect
+- Runs Geth by default as a Systemd service and starts syncing the Blockchain. Systemd monitors the Ethereum client binary and respawns it in case it gets killed or something unexpected happens (such as a reboot)
+- Includes Parity Ethereum client as well so you can switch between both clients
+- Includes other components of the Ethereum framework such as Status.im, Raiden, IPFS and Swarm
+- Includes an APT repository for upgrading Ethereum packages by running apt-get install command (e.g. sudo apt-get install geth)
 
 # Software installed
 
-## Ethereum clients
-- Geth 1.9.6 (runs by default in light mode)
-- Parity 2.5.9
-
-## Ethereum framework
--  Swarm: 0.5.0
- - Raiden Network: 0.100.4
- - IPFS: 0.4.22
- - Status.im: 0.30.0~beta2
- - Vipnode: 2.2.1
-
+- Geth: 1.9.6 (official binary)
+- Parity: 2.5.9 (cross compiled)
+- Swarm: 0.5.2 (official binary)
+- Raiden Network: 0.200.0~rc1 (official binary)
+- IPFS: 0.4.22 (official binary)
+- Status.im: 0.34.0~beta3 (cross compiled)
+- Vipnode: 2.3 (official binary)
 
 # What you need
-1. Raspberry Pi 2/3/4
-2. Micro SD Card and SD Adaptor (64GB Class 10 is recommended) 
-3. Power Supply for specific Raspberrypi model
-4. An ethernet cable
-5. EthRaspbian Image (download link below)
-6. (Optional) USB keyboard, Monitor and HDMI cable
+
+- Raspberry Pi 4 model B (4GB)
+- Micro SD Card
+- SSD disk with USB 3.0 (See USB SSD disk section)
+- Power Supply
+- Ethernet cable
+- (Optional but strongly recommended) Case with a heatsink and a fan.
+- (Optional but strongly recommended) 30303 Port forwarding
+- (Optional) USB keyboard, Monitor and HDMI cable (micro-HDMI)
 
 # Install instructions for Linux
 
@@ -56,11 +59,11 @@ Insert the MicroSD in your SD adapter and plug it into your computer. It is reco
 
 1. Download the EthRaspbian image (you can choose from Geth or Parity images):
 
-https://ethraspbian.com/downloads/image_2019-10-03-EthRaspbian2.0-lite.zip
+https://ethraspbian.com/downloads/image_2019-10-26-EthRaspbian2.0-lite.zip
 
 2. Unzip it (for instance):
 
-`unzip image_2019-10-03-EthRaspbian2.0-lite.zip`
+`unzip image_2019-10-26-EthRaspbian2.0-lite.zip`
 
 3. Check your MicroSD device name running:
 
@@ -72,7 +75,7 @@ https://www.raspberrypi.org/documentation/installation/installing-images/linux.m
 
 4. Flash the MicroSD (mmcblk0 device and geth edition example):
 
-`sudo dd bs=1M if=2019-10-03-EthRaspbian2.0-lite of=/dev/mmcblk0 && sync`
+`sudo dd bs=1M  if=2019-10-26-EthRaspbian2.0-lite of=/dev/mmcblk0 conv=fdatasync status=progress`
 
 5. Extract the MicroSD card
 
@@ -81,9 +84,7 @@ You are done. Insert the MicroSD in your Raspberry and power it on. Login detail
 User: ethereum
 Password: ethereum
 ```
-It is strongly recommended to change the default password by running:
-
-`passwd`
+For security reasons, you will be prompted to change the password on first login.
 
 # Other operating systems
 

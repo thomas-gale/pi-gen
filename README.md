@@ -26,7 +26,7 @@ These are the main features:
 
 # Software installed
 
-- Geth: 1.9.6 (official binary)
+- Geth: 1.9.7 (official binary)
 - Parity: 2.5.9 (cross compiled)
 - Swarm: 0.5.2 (official binary)
 - Raiden Network: 0.200.0~rc1 (official binary)

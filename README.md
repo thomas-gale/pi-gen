@@ -49,7 +49,7 @@ These are the main features:
 
 There are 2 options for the SSD storage:
 
-Use a USB portable SSD disk such as the Samsung T5 Portable SSD (as seen on this fantastic step-by-step guide to run a full node on the RPi4 by Grégoire Jeanmart) [7]
+Use a USB portable SSD disk such as the Samsung T5 Portable SSD
 
 Use a USB 3.0 External Hard Drive Case with a SSD Disk. In my case I used a Inateck 2.5 Hard Drive Enclosure FE2011 [8] with a Kingston SSD A400 (480 GB) [9]. Be sure to buy a case with an UAS compliant chip, particularly, one of these: JMicron (JMS567 or JMS578) or ASMedia (ASM1153E)
 

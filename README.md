@@ -24,10 +24,14 @@ These are the main features:
 - Includes other components of the Ethereum framework such as Status.im, Raiden, IPFS and Swarm
 - Includes an APT repository for upgrading Ethereum packages by running apt-get install command (e.g. sudo apt-get install geth)
 
-# Software installed
+# Software installed 
 
-- Geth: 1.9.7 (official binary)
-- Parity: 2.5.10 (cross compiled)
+run the following command to update to las versions available
+
+`sudo update-ethereum`
+
+- Geth: 1.9.9 (official binary)
+- Parity: 2.5.11 (cross compiled)
 - Swarm: 0.5.2 (official binary)
 - Raiden Network: 0.200.0~rc1 (official binary)
 - IPFS: 0.4.22 (official binary)

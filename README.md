@@ -1,14 +1,12 @@
-EthRaspbian (ARM7) is a custom Linux image for the Raspberry Pi 4  that runs Geth or Parity Ethereum clients as a boot service and automatically turns the device into a full Ethereum node. The image includes other components of the Ethereum ecosystem such as Trinity, Status.im, Raiden, IPFS, Swarm and Vipnode as well as initial support for Eth2.0 clients.
+Ethereum on ARM32 is a custom Linux image for the Raspberry Pi 4 that runs Geth or Parity Ethereum clients as a boot service and automatically turns the Raspberry Pi 4 into a full Ethereum node. The image includes other components of the Ethereum ecosystem such as Trinity, Status.im, Raiden, IPFS, Swarm and Vipnode as well as initial support for Eth2.0 clients.
 
-It also runs on the Raspberry Pi 2/3 but due to hardware limitations these devices are not capable of syncing the blockchain. However, you can run Geth or Parity as light clients or support the Ethereum network by running other key software such as Status.im, Raiden, IPFS or Swarm.
-
-For running a full Ethereum node on ARM64 devices (currently NanoPC-T4 [3] and Rockpro64 [4]), please see the EthArmbian project
+For running a full Ethereum node on ARM64 devices (currently NanoPC-T4 and Rockpro64), please see the Ethereum on ARM64 project
 
 https://github.com/diglos/userpatches
 
 # Image features
 
-EthRaspbian Image takes care of everything, from setting up the environment to installing and running the Ethereum software as well as synchronizing the blockchain.
+Ethereum on ARM32 Image takes care of everything, from setting up the environment to installing and running the Ethereum software as well as synchronizing the blockchain.
 
 These are the main features:
 
@@ -71,7 +69,7 @@ https://etcher.io
 
 Insert the MicroSD in your SD adapter and plug it into your computer. It is recommended to umount partitions in case that you have a preformated card.
 
-1. Download the EthRaspbian image (you can choose from Geth or Parity images):
+1. Download the Ethereum on ARM32 image (you can choose from Geth or Parity images):
 
 https://ethraspbian.com/downloads/image_2019-10-26-EthRaspbian2.0-lite.zip
 

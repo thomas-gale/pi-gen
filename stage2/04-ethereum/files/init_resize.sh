@@ -174,6 +174,9 @@ chage -d 0 ethereum
 # Delete pi user
 userdel -r pi
 
+# Enable 64bit Kernel for fixing memory allocation issues
+echo arm_64bit=1 >> /boot/config.txt
+
 }
 
 main () {

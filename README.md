@@ -73,6 +73,7 @@ Insert the MicroSD in your SD adapter and plug it into your computer. It is reco
 1. Download the Ethereum on ARM32 image (you can choose from Geth or Parity images):
 
 https://ethraspbian.com/downloads/image_2019-12-20-EthRaspbian2.0-lite.zip
+SHA256 b3b35885a6b644cac478d7ddf4c1abc962fd4be7f5a5e8d082e7fa3fe8730094
 
 2. Unzip it (for instance):
 

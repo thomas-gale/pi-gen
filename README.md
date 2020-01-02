@@ -30,7 +30,7 @@ run the following command to update to las versions available
 `sudo update-ethereum`
 
 - Geth: 1.9.9 (official binary)
-- Parity: 2.5.12 (cross compiled)
+- Parity: 2.5.13 (cross compiled)
 - Swarm: 0.5.4 (official binary)
 - Raiden Network: 0.200.0~rc1 (official binary)
 - IPFS: 0.4.22 (official binary)

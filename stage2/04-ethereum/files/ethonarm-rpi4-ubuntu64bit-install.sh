@@ -220,7 +220,7 @@ TimeoutStartSec=30sec
 WantedBy=sysinit.target
 EOF
 chmod +x /usr/lib/armbian/armbian-zram-config
-systemctl enable zram-armbian-config
+systemctl enable armbian-zram-config
 
 # Swap and Zram tweaks
 # Page allocation error workout

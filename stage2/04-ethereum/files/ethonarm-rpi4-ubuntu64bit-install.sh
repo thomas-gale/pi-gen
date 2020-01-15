@@ -257,6 +257,9 @@ echo Installing Ethereum packages
 apt-get install geth
 apt-get install parity swarm parity ipfs raiden status.im-node vipnode prysm-beacon prysm-validator lighthouse
 
+# Set Geth cache to 768
+echo 'ARGS="--lightserv 25 --lightpeers 25 --maxpeers 128 --port 30304 --cache 768"' > /etc/ethereum/geth.conf
+
 echo "Done. Please, reboot the systems for changes to take effect"
 
 exit 0

@@ -64,6 +64,7 @@ cat << EOF | tee /etc/default/armbian-zram-config >/dev/null
 #
 # enable the armbian-zram-config service
 ENABLED=true
+ZRAM_PERCENTAGE=25
 EOF
 
 # Enable Zram (ARMBIAN script)

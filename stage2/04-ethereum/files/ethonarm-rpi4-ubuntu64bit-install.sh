@@ -9,7 +9,7 @@
 # https://github.com/diglos/pi-gen
 #
 # This script turns James Chambers Ubuntu 64bit image for Raspberry Pi 4 into a full Ethereum node
-# You need to run the script " " before running this script
+# You need to install a Raspbian image and run the script "ethonarm-rpi4-ubuntu64bit-setup.sh" before running this script
 #
 # More information about the image here:
 #
@@ -219,12 +219,28 @@ TimeoutStartSec=30sec
 [Install]
 WantedBy=sysinit.target
 EOF
+
+cat << 'EOF' | tee /etc/default/armbian-ramlog >/dev/null
+# configuration values for the armbian-ram-logging service
+#
+# enable the armbian-ram-logging service?
+ENABLED=true
+#
+# size of the tmpfs mount -- please keep in mind to adjust /etc/default/armbian-zram-config too when increasing
+SIZE=50M
+#
+# use rsync instead of cp -r
+# requires rsync installed, may provide better performance
+# due to copying only new and changed files
+USE_RSYNC=true
+EOF
+
 chmod +x /usr/lib/armbian/armbian-zram-config
 systemctl enable armbian-zram-config
 
 # Swap and Zram tweaks
 # Page allocation error workout
-echo "vm.min_free_kbytes=131072" >> /etc/sysctl.conf
+echo "vm.min_free_kbytes=65536" >> /etc/sysctl.conf
 # Modify swappiness parameter
 echo "vm.swappiness=100" >> /etc/sysctl.conf
 

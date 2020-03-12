@@ -177,6 +177,9 @@ userdel -r pi
 # Enable 64bit Kernel for fixing memory allocation issues
 echo arm_64bit=1 >> /boot/config.txt
 
+# Change swappiness default value to force using Zram
+echo "vm.swappiness=100" >> /etc/sysctl.conf
+
 }
 
 main () {

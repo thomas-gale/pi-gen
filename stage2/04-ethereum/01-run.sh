@@ -3,10 +3,15 @@
 install -m 644 files/ethonarm.list			    ${ROOTFS_DIR}/etc/apt/sources.list.d/ 
 install -m 755 files/init_resize.sh			    ${ROOTFS_DIR}/usr/lib/raspi-config	
 install -m 644 files/dphys-swapfile			    ${ROOTFS_DIR}/etc/
+install -m 644 files/zram-default/armbian-zram-config	    ${ROOTFS_DIR}/etc/default
+install -m 755 files/zram-lib/armbian-zram-config	    ${ROOTFS_DIR}/usr/lib/armbian/
+install -m 644 files/armbian-zram-config.service	    ${ROOTFS_DIR}etc/systemd/system/
+
+
 cat <<EOF >> ${ROOTFS_DIR}/etc/bash.bashrc
 alias update-ethereum='
 sudo apt-get update
-sudo apt-get install geth swarm ipfs parity raiden status.im-node vipnode'
+sudo apt-get install geth nethermind swarm ipfs parity raiden status.im-node vipnode'
 EOF
 
 on_chroot <<EOF

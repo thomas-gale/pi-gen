@@ -10,7 +10,8 @@ Ethereum on ARM32 Image takes care of everything, from setting up the environmen
 
 These are the main features:
 
-- Based on Raspbian [6] Debian Buster
+- Based on Raspbian Debian Buster
+- Switch to 64bit kernel
 - Automatically resizes the SD card
 - Partitions and formats the USB SSD drive (in case is detected) and mount it as /home for storing the Ethereum blockchain
 - Creates an Ethereum user account
@@ -29,8 +30,8 @@ run the following command to update to las versions available
 `sudo update-ethereum`
 
 - Geth: 1.9.9 (official binary)
-- Parity: 2.5.11 (cross compiled)
-- Swarm: 0.5.2 (official binary)
+- Parity: 2.5.13 (cross compiled)
+- Swarm: 0.5.4 (official binary)
 - Raiden Network: 0.200.0~rc1 (official binary)
 - IPFS: 0.4.22 (official binary)
 - Status.im: 0.34.0~beta3 (cross compiled)
@@ -71,11 +72,12 @@ Insert the MicroSD in your SD adapter and plug it into your computer. It is reco
 
 1. Download the Ethereum on ARM32 image (you can choose from Geth or Parity images):
 
-https://ethraspbian.com/downloads/image_2019-10-26-EthRaspbian2.0-lite.zip
+https://ethraspbian.com/downloads/image_2019-12-20-EthRaspbian2.0-lite.zip
+SHA256 b3b35885a6b644cac478d7ddf4c1abc962fd4be7f5a5e8d082e7fa3fe8730094
 
 2. Unzip it (for instance):
 
-`unzip image_2019-10-26-EthRaspbian2.0-lite.zip`
+`unzip image_2019-12-20-EthRaspbian2.0-lite.zip`
 
 3. Check your MicroSD device name running:
 
@@ -87,7 +89,7 @@ https://www.raspberrypi.org/documentation/installation/installing-images/linux.m
 
 4. Flash the MicroSD (mmcblk0 device and geth edition example):
 
-`sudo dd bs=1M  if=2019-10-26-EthRaspbian2.0-lite of=/dev/mmcblk0 conv=fdatasync status=progress`
+`sudo dd bs=1M  if=2019-12-20-EthRaspbian2.0-lite.img of=/dev/mmcblk0 conv=fdatasync status=progress`
 
 5. Extract the MicroSD card
 

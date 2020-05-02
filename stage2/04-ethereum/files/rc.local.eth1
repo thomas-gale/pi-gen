@@ -24,12 +24,10 @@ if [ ! -f $FLAG ]; then
    # Format USB3 SSD and mount it as /home
 
    echo Looking for USB drive
-   sleep 20
 
    if stat  /dev/sda > /dev/null 2>&1;
      then
      	echo USB drive found
-	sleep 2 
         echo Partitioning and formatting USB Drive...
         fdisk /dev/sda <<EOF
 d
@@ -43,7 +41,6 @@ EOF
 	echo '/dev/sda1 /home ext4 defaults 0 2' >> /etc/fstab && mount /home
    else
         echo no SDD detected
-	sleep 5
    fi
 
    # Create Ethereum account

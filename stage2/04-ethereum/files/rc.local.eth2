@@ -241,6 +241,7 @@ EOF
 
   # Ethereum software installation
   # Add APT EthRaspbian repository
+  sleep 20
   echo "Adding Ethereum repositories"
   apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 8A584409D327B0A5
   add-apt-repository -n "deb http://apt.ethraspbian.com bionic main"
@@ -250,7 +251,7 @@ EOF
   # Install Ethereum packages
   echo Installing Ethereum packages
   apt-get -y install prysm-beacon prysm-validator prysm-slasher lighthouse
-  apt-get -y geth parity nethermind hyperledger-besu swarm ipfs raiden statusd vipnode
+  apt-get -y install geth parity nethermind hyperledger-besu swarm ipfs raiden statusd vipnode
   systemctl disable geth
   systemctl enable prysm-beacon
 

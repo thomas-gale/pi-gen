@@ -260,6 +260,18 @@ alias update-ethereum='
 sudo apt-get update
 sudo apt-get install geth parity nethermind hyperledger-besu swarm ipfs raiden statusd vipnode prysm-beacon prysm-validator prysm-slasher lighthouse'
 EOF
+   # Install monitoring infrastructure
+   wget -P /tmp https://dl.grafana.com/oss/release/grafana_6.7.3_arm64.deb
+   dpkg -i /tmp/grafana_6.7.3_arm64.deb
+   useradd -m prometheus
+   mkdir -p /home/prometheus/node-exporter/
+   chown -R  prometheus:prometheus /home/prometheus/
+   apt install -y prometheus prometheus-node-exporter
+   chown grafana:grafana /root/tmp/grafana.db
+   cp -a /root/tmp/grafana.db /var/lib/grafana/grafana.db
+   cp -a /root/tmp/{prometheus,prometheus-node-exporter} /etc/default
+   cp -a /root/tmp/prometheus.yml /etc/prometheus/
+   systemctl enable grafana-server
 
    #the next line creates an empty file so it won't run the next boot
    touch $FLAG

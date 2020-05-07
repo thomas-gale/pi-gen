@@ -84,7 +84,7 @@ sha256 34f105201482279a5e83decd265bd124d167b0fefa43bc05e4268ff899b46f19
 
 [ubuntu-20.04-preinstalled-server-arm64+raspi-eth2.img.zip](https://ethraspbian.com/downloads/ubuntu-20.04-preinstalled-server-arm64+raspi-eth2.img.zip)
 
-sha256 7fc6174a55b092cfa6de67212b6ee6bf92f4e3117e6b2e16f322ce8e2e76d27c
+sha256 74c0c15b708720e5ae5cac324f1afded6316537fb17166109326755232cd316e
 
 **2.- Flash the image**
 

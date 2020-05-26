@@ -236,14 +236,14 @@ EOF
   # Page allocation error workout
   echo "vm.min_free_kbytes=65536" >> /etc/sysctl.conf
   # Modify swappiness parameter
-  echo "vm.swappiness=100" >> /etc/sysctl.con
+  echo "vm.swappiness=100" >> /etc/sysctl.conf
 
 
   # Ethereum software installation
   # Add APT EthRaspbian repository
   sleep 25
   echo "Adding Ethereum repositories"
-  apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 8A584409D327B0A5
+  apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 8A584409D327B0A5
   add-apt-repository -n "deb http://apt.ethraspbian.com bionic main"
   add-apt-repository -n "deb http://apt.ethraspbian.com bionic-security main"
   add-apt-repository "deb http://apt.ethraspbian.com bionic-upgrades main"

@@ -34,6 +34,9 @@ d
 n
 p
 1
+
+
+
 w
 EOF
 
@@ -251,6 +254,8 @@ EOF
   # Install Ethereum packages
   echo Installing Ethereum packages
   apt-get -y install geth
+  # Stop Geth until first reboot in order to not overload the system
+  systemctl stop geth
   apt-get -y install parity nethermind hyperledger-besu swarm ipfs raiden statusd vipnode prysm-beacon prysm-validator prysm-slasher lighthouse
 
 

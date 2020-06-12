@@ -34,6 +34,9 @@ d
 n
 p
 1
+
+
+
 w
 EOF
 
@@ -252,8 +255,11 @@ EOF
   echo Installing Ethereum packages
   apt-get -y install prysm-beacon prysm-validator prysm-slasher lighthouse
   apt-get -y install geth parity nethermind hyperledger-besu swarm ipfs raiden statusd vipnode
+  # Stop and disable Geth
+  systemctl stop geth
   systemctl disable geth
   systemctl disable parity
+  # Enable the beacon chain for next reboot
   systemctl enable prysm-beacon
 
   # Create an alias for package updates

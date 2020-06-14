@@ -239,7 +239,7 @@ EOF
   # Page allocation error workout
   echo "vm.min_free_kbytes=65536" >> /etc/sysctl.conf
   # Modify swappiness parameter
-  echo "vm.swappiness=100" >> /etc/sysctl.con
+  echo "vm.swappiness=100" >> /etc/sysctl.conf
 
 
   # Ethereum software installation

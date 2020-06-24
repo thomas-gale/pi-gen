@@ -253,11 +253,17 @@ EOF
 
   # Install Ethereum packages
   echo Installing Ethereum packages
+  apt-get -y install prysm-beacon prysm-validator prysm-slasher
   apt-get -y install geth
-  # Stop Geth until first reboot in order to avoid slowing the install process
+  # Stop and disable Geth
   systemctl stop geth
-  apt-get -y install parity nethermind hyperledger-besu swarm ipfs raiden statusd vipnode prysm-beacon prysm-validator prysm-slasher lighthouse
+  systemctl disable geth
+  # Enable the beacon chain for next reboot
+  systemctl enable prysm-beacon
 
+  # Modify config params for Onyx
+  echo 'ARGS="--goerli --http --metrics --metrics.expensive --pprof --maxpeers 50”' > /etc/ethereum/geth.conf
+  echo 'ARGS="--http-web3provider http://localhost:8545"' > /etc/ethereum/prysm-beacon.conf
 
   # Create an alias for package updates
   cat <<EOF >> /etc/bash.bashrc

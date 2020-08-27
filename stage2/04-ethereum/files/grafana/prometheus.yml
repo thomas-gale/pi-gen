@@ -56,3 +56,16 @@ scrape_configs:
     scheme: http
     static_configs:
       - targets: ['localhost:9545']
+  - job_name: 'validator'
+    static_configs:
+      - targets: ['localhost:8081']
+  - job_name: 'beacon node'
+    static_configs:
+      - targets: ['localhost:8080']
+  - job_name: 'lighthouse'
+    static_configs:
+      - targets: ['localhost:5052']
+  - job_name: "nimbus"
+    static_configs:
+      - targets: ['127.0.0.1:8008']
+

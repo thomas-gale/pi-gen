@@ -164,7 +164,7 @@ Commands to enable and start each Eth 1.0 client:
 Eth 2.0:
 
     sudo systemctl stop prysm-beacon && sudo systemctl disable prysm-beacon
-    sudo systemctl start lighthouse && sudo systemctl enable lighthouse
+    sudo systemctl start lighthouse-beacon && sudo systemctl enable lighthouse-beacon
 
 # Changing parameters
 

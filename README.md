@@ -1,8 +1,7 @@
 Ethereum on ARM for Raspberry Pi 4 is a custom Linux image for the device that runs Ethereum clients as a boot service and automatically turns the Raspberry Pi 4 into a full Ethereum 1.0 node or a Ethereum 2.0 node. The image includes other components of the Ethereum ecosystem such as Status.im, Raiden, IPFS, Swarm and Vipnode.
 
-For running a full Ethereum node on NanoPC-T4 or RockPro64 ARM64 devices, please see the Ethereum on ARM64 project
-
-https://github.com/diglos/userpatches
+# Source build modification for Geth and Prysm (and as many other binaries as possible...)
+- Planning on making this pi-gen build fully build all geth and prysm code from source on device.
 
 **TL;DR:** **Flash your Raspberry Pi 4, plug in an ethernet cable, connect the SSD disk and power up the device to turn the Raspberry Pi 4 into a full Ethereum 1.0 node or an Ethereum 2.0 node (beacon chain / validator)**
 

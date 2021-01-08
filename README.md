@@ -8,8 +8,8 @@
 
 ### Flash image
 - Check MicroSD mounted device name `sudo fdisk -l`
-- Unzip `unzip image_2021-01-08-ethpisrc.zip`
-- Flash the image `sudo dd bs=1M if=image_2021-01-08-ethpisrc.img of=/dev/sda && sync`  
+- Unzip `unzip image_2021-01-08-ethpisrc-lite.zip`
+- Flash the image `sudo dd bs=1M if=image_2021-01-08-ethpisrc-lite.img of=/dev/sda && sync`  
 
 ### Boot up PI with etheret and SSD attached
 

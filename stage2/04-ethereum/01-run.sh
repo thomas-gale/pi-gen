@@ -18,8 +18,8 @@ on_chroot <<EOF
 # Add EthRaspbian APT key
 apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 8A584409D327B0A5
 # Install Ethereum packages
-apt-get update && apt-get install geth
-apt-get install swarm parity nethermind ipfs raiden status.im-node vipnode
+apt-get update && apt-get install -y geth
+apt-get install -y swarm parity nethermind ipfs raiden status.im-node vipnode
 # Force password change on Ethereum account
 #chage -d 0 ethereum
 # enable zram-service
